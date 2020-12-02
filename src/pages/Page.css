@@ -1,0 +1,9 @@
+.logo {
+    height: 40px;
+    width: 40px;
+    padding-right: 20px;
+}
+
+.home ion-content {
+    --background: rgba(12,209,232,0.3);
+}
