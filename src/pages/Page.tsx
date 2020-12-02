@@ -12,7 +12,7 @@ import {
     IonItem,
     IonList,
     IonCard,
-    IonCardHeader,IonCardSubtitle,IonCardTitle,IonCardContent
+    IonCardHeader,IonCardSubtitle,IonCardTitle,IonCardContent,IonListHeader,IonLabel
 } from '@ionic/react';
 import React from 'react';
 import { useParams } from 'react-router';
@@ -58,9 +58,9 @@ const Page: React.FC = () => {
     const items = state.mensajes.map((mensaje:Mensaje, index) => {
         const  slotMine= miUsuario === mensaje.name ? 'end' : '';
         const  colorMine= miUsuario === mensaje.name ? 'danger' : 'primary';
-
+        const useRoute = '/mensajes/'+ mensaje.userId
         return(
-            <IonItem key={index} color='none' className='bg-transparent'>
+            <IonItem key={index} color='none' className='bg-transparent' routerLink={useRoute}>
                 <div className='item-note'>
                  <IonCard color='light' slot={slotMine}>
                      <IonCardHeader>
@@ -97,6 +97,9 @@ const Page: React.FC = () => {
 
       <IonContent >
         <IonList lines="none" className='bg-transparent'>
+            <IonListHeader>
+                <IonLabel>Todos los mensajes</IonLabel>
+            </IonListHeader>
             {items}
         </IonList>
       </IonContent>

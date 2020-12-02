@@ -13,8 +13,16 @@ import {
 import {logoIonic} from "ionicons/icons";
 import ExploreContainer from "../components/ExploreContainer";
 import './MensajesUsuario.css';
+import {RouteComponentProps} from "react-router";
+import List from "../components/List";
 
-const MensajesUsuarioPage: React.FC = () => {
+interface MyPageProps extends RouteComponentProps <{
+    id: string
+}>{}
+
+const MensajesUsuarioPage: React.FC<MyPageProps> = ({match}) => {
+
+
     return (
         <IonPage className='home'>
             <IonHeader>
@@ -28,12 +36,12 @@ const MensajesUsuarioPage: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
 
-            <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large"> </IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+            <List id={match.params.id}>
+
+            </List>
+
+            <IonContent >
+
 
             </IonContent>
             <IonFooter>
